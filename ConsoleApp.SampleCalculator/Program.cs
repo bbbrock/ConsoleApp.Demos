@@ -65,12 +65,12 @@ while (true)
             break;
     }
 
-    // Clear the screen
-    Console.Clear();
-
     // Print output
     Console.WriteLine($"The answer: {num1} {operation} {num2} = {answer}");
     Console.WriteLine();
+    Console.WriteLine("Please press Enter to continue");
+    Console.ReadLine();
+    Console.Clear();
 }
 
 Console.WriteLine("Thank you for using the Sample Calculator.");
