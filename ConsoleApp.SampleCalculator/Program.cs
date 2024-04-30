@@ -8,16 +8,9 @@ while (true)
 {
     try
     {
-        // Show calculator options
-        Console.WriteLine("Please select the operation you would like to perform. (-1 to exit)");
-        Console.WriteLine($"1: Addition");
-        Console.WriteLine($"2: Subtraction");
-        Console.WriteLine($"3: Multiplication");
-        Console.WriteLine($"4: Division");
-        Console.WriteLine($"5: Modulus (Remainder)");
-        Console.WriteLine($"6: Fibonacci sequence");
-        Console.WriteLine("");
-        Console.Write("Please enter your selection [1-5]: ");
+        PrintMenu();
+
+        Console.Write("Please enter your selection [1-6]: ");
         int selection = Convert.ToInt32(Console.ReadLine());
 
         // If user enters a -1, break out of the main body loop.
@@ -36,30 +29,27 @@ while (true)
         switch (selection)
         {
             case 1:
-                answer = num1 + num2;
+                answer = AddNumbers(num1, num2);
                 operation = "+";
                 break;
             case 2:
-                answer = num1 - num2;
+                answer = SubtractNumbers( num1, num2);
                 operation = "-";
                 break;
             case 3:
-                answer = num1 * num2;
+                answer = ProductNumbers( num1, num2);
                 operation = "*";
                 break;
             case 4:
-                answer = num1 / num2;
+                answer = QuotientNumbers(num1, num2);
                 operation = "/";
                 break;
             case 5:
-                answer = num1 % num2;
+                answer = ModulusNumbers(num1, num2);
                 operation = "%";
                 break;
             case 6:
-                for (int i = num1; i <= num2; i++)
-                {
-                    answer += i;
-                }
+                answer = FibonaciNumbers(num1, num2);
                 operation = "fib";
                 break;
             default:
@@ -86,3 +76,53 @@ while (true)
 }
 
 Console.WriteLine("Thank you for using the Sample Calculator.");
+
+int AddNumbers(int num1, int num2)
+{
+    return num1 + num2;
+}
+
+int SubtractNumbers(int num1, int num2)
+{
+    return num1 - num2;
+}
+
+int ProductNumbers(int num1, int num2)
+{
+    return num1 * num2;
+}
+
+int ModulusNumbers(int num1, int num2)
+{
+    return num1 % num2;
+}
+
+int QuotientNumbers(int num1, int num2)
+{
+    return num1 / num2;
+}
+
+int FibonaciNumbers(int num1, int num2)
+{
+    int answer = 0;
+    for (int i = num1; i <= num2; i++)
+    {
+        answer += i;
+    }
+    return answer;
+}
+
+void PrintMenu()
+{
+    // Show calculator options
+    Console.Clear();
+    Console.WriteLine("Please select the operation you would like to perform. (-1 to exit)");
+    Console.WriteLine($"1: Addition");
+    Console.WriteLine($"2: Subtraction");
+    Console.WriteLine($"3: Multiplication");
+    Console.WriteLine($"4: Division");
+    Console.WriteLine($"5: Modulus (Remainder)");
+    Console.WriteLine($"6: Fibonacci sequence");
+    Console.WriteLine("");
+}
+
